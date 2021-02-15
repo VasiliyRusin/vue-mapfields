@@ -1,0 +1,24 @@
+{
+  "name": "@vasiliyrusin/vue-mapfields",
+  "version": "2021.02.16",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VasiliyRusin/vue-mapfields.git"
+  },
+  "keywords": [
+    "vue",
+    "map",
+    "mapfields"
+  ],
+  "author": "Vasiliy Rusin",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/VasiliyRusin/vue-mapfields/issues"
+  },
+  "homepage": "https://github.com/VasiliyRusin/vue-mapfields#readme"
+}
