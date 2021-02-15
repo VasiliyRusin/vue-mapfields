@@ -1,14 +1,15 @@
 {
   "name": "@vasiliyrusin/vue-mapfields",
-  "version": "2021.02.16",
+  "version": "2021.02.17",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": ""
+    "build": "babel src --out-dir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/VasiliyRusin/vue-mapfields.git"
+    "url": "git+https://github.com/VasiliyRusin/vue-mapfields.git"
   },
   "keywords": [
     "vue",
@@ -20,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/VasiliyRusin/vue-mapfields/issues"
   },
-  "homepage": "https://github.com/VasiliyRusin/vue-mapfields#readme"
+  "homepage": "https://github.com/VasiliyRusin/vue-mapfields#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.16",
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16"
+  }
 }

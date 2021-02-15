@@ -1,5 +1,2 @@
-import normalizeBase from "./normalizeBase";
-import normalizeNamespace from "./normalizeNamespace";
-
-export const normalizeBase = normalizeBase;
-export const normalizeNamespace = normalizeNamespace;
+export { default as normalizeBase } from "./normalizeBase";
+export { default as normalizeNamespace } from "./normalizeNamespace";
