@@ -1,4 +1,4 @@
-import { normalizeBase, normalizeNamespace } from "./utils";
+import { normalizeBase, normalizeNamespace, getModuleByNamespace } from "./utils";
 
 /**
  *
@@ -8,9 +8,19 @@ export const mapFields = normalizeNamespace((namespace, { fields, base, action, 
   return fields.reduce((object, field) => {
     object[field] = {
       get () {
-        base = base ?? "";
-        
-        return normalizeBase(this.$store.state, namespace + base)[field];
+        let state = this.$store.state;
+  
+        if (namespace) {
+          const module = getModuleByNamespace(this.$store, namespace);
+    
+          if (!module) {
+            return;
+          }
+    
+          state = module.context.state;
+        }
+  
+        return normalizeBase(state, base)[field]
       },
       
       set (value) {
