@@ -13,7 +13,7 @@ interface Params {
   // object's properties
   fields: Array<string>;
   // path to object in state (from module root)
-  base: string,
+  base?: string,
   // action name. Needs full path if namespace doesn't set.
   action: string
   // Deprecated. It will be removed soon.
@@ -52,13 +52,14 @@ mapFields (namespace?: string, map: Params): Object
   
   mutations: {
     UPDATE_FILTERS (state, filters) {
-      // method 1
-      state.filters = { ...state.filters, ...filters };
-      
-      // method 2
+      // method 1 (preferred)
       for (const [key, value] of Object.entries(filters)) {
         Vue.set(state.filters, key, value);
       }
+      
+      // method 2
+      // this fires update of all "filters".
+      state.filters = { ...state.filters, ...filters };
     }
   }
 }
@@ -66,7 +67,9 @@ mapFields (namespace?: string, map: Params): Object
 
 #### components/carFilters.vue
 ```javascript
-{
+import { mapFields } from "@vasiliyrusin/vue-mapfields";
+
+export default {
   computed: {
     ...mapFields("carMarket", {
       fields: ["models"],

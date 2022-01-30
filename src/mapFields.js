@@ -4,7 +4,7 @@ import { normalizeBase, normalizeNamespace, getModuleByNamespace } from "./utils
  *
  * @type { function(*=, *=): * }
  */
-export const mapFields = normalizeNamespace((namespace, { fields, base, action, mutation }) => {
+export const mapFields = normalizeNamespace((namespace, { fields, base = "", action, mutation }) => {
   return fields.reduce((object, field) => {
     object[field] = {
       get () {
@@ -32,7 +32,8 @@ export const mapFields = normalizeNamespace((namespace, { fields, base, action, 
         
         if (mutation) {
           // eslint-disable-next-line no-console
-          console.warn("mutation param is deprecated, use action instead");
+          console.error("\"mutation\" param is deprecated and will be removed in the future release. " +
+            "Use \"action\" instead.");
           this.$store.commit(namespace + mutation, {
             [field]: value
           });

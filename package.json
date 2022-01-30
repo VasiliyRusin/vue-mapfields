@@ -1,6 +1,6 @@
 {
   "name": "@vasiliyrusin/vue-mapfields",
-  "version": "2021.06.16",
+  "version": "2022.01.31",
   "description": "",
   "main": "dist/index.js",
   "source": "src/index.js",
